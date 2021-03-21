@@ -52,6 +52,6 @@ public class JpaMovies {
     }
 
     public List<Role> getRolesInMovie(Integer movieId){
-        return this.movies.get(movieId-1).getRoles();
+        return this.moviesDAO.findOne(movieId).getRoles();
     }
 }
