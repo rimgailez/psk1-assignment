@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="MoviesDB" targetRuntime="MyBatis3Simple">
+        <jdbcConnection driverClass="org.h2.Driver"
+                        connectionURL="jdbc:h2:~/h2database/MovieDB;AUTO_SERVER=TRUE"
+                        userId="rizn"
+                        password="rizn">
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="psk1.assignment.myBatis.model" targetProject=".\src\main\java" />
+        <sqlMapGenerator targetPackage="psk1.assignment.myBatis.mapper" targetProject=".\src\main\java" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="psk1.assignment.myBatis.dao" targetProject=".\src\main\java" />
+
+
+        <table schema="public" tableName="movie">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="role">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+        <table schema="public" tableName="producer">
+            <generatedKey column="id" identity="true" sqlStatement="JDBC" />
+        </table>
+    </context>
+</generatorConfiguration>

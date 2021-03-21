@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head/>
+<h:body>
+    <h2>Movies:</h2>
+    <ol>
+        <ui:repeat value="#{jpaMovies.movies}" var="movie">
+            <li><h:link value="#{movie.title}" outcome="roles?movieId=#{movie.id}"/></li>
+            <ul>
+                <ui:repeat value="#{jpaMovies.getRolesInMovie(movie.id)}" var="role">
+                    <li>#{role.name}</li>
+                </ui:repeat>
+            </ul>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Movie title:
+        <h:inputText value="#{jpaMovies.movieToAdd.title}" required="true"/>
+        <br/>
+        Release date:
+        <br/>
+        Year: <h:inputText value="#{jpaMovies.year}" required="true"/>
+        Month: <h:inputText value="#{jpaMovies.month}" required="true"/>
+        Day: <h:inputText value="#{jpaMovies.day}" required="true"/>
+        <br/>
+        <h:commandButton value="Add new movie" action="#{jpaMovies.addMovie}"/>
+    </h:form>
+    <h:link value="Back to index" outcome="/index"/>
+</h:body>
+</html>

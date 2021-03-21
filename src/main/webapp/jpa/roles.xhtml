@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head/>
+<h:body>
+    <h2>Roles in a #{jpaRolesInMovie.movie.title} movie:</h2>
+    <ol>
+        <ui:repeat value="#{jpaRolesInMovie.movie.roles}" var="role">
+            <li>#{role.name}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Role name:
+        <h:inputText a:placeholder="name" value="#{jpaRolesInMovie.roleToAdd.name}" required="true" />
+        <br/>
+        Description:
+        <h:inputText a:placeholder="description" value="#{jpaRolesInMovie.roleToAdd.description}" required="false" />
+        <br/>
+        Actor name:
+        <h:inputText a:placeholder="actor" value="#{jpaRolesInMovie.roleToAdd.actor}" required="false" />
+        <br/>
+        <h:commandButton value="Add role to a movie" action="#{jpaRolesInMovie.addRole}" >
+            <f:param name="movieId" value="#{jpaRolesInMovie.movie.id}" />
+        </h:commandButton>
+    </h:form>
+    <h:link outcome="/jpa/movies" value="Back to movies"/>
+</h:body>
+</html>
