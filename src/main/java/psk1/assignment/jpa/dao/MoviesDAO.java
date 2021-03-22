@@ -28,8 +28,4 @@ public class MoviesDAO {
     public Movie findOne(Integer id){
         return entityManager.find(Movie.class, id);
     }
-
-    public Movie update(Movie movie){
-        return entityManager.merge(movie);
-    }
 }

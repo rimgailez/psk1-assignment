@@ -1,24 +1,25 @@
 package psk1.assignment.jpa.components;
 
-import psk1.assignment.jpa.dao.MoviesDAO;
+import psk1.assignment.jpa.dao.*;
 import psk1.assignment.jpa.entities.*;
 
 import lombok.*;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.inject.Model;
 import javax.inject.*;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-@Named
-@RequestScoped
+@Model
 public class JpaMovies {
 
     @Inject
     private MoviesDAO moviesDAO;
+
+    @Inject
+    private RolesDAO rolesDAO;
 
     @Getter @Setter
     private Movie movieToAdd = new Movie();
@@ -52,6 +53,6 @@ public class JpaMovies {
     }
 
     public List<Role> getRolesInMovie(Integer movieId){
-        return this.moviesDAO.findOne(movieId).getRoles();
+        return rolesDAO.findByMovie(movieId);
     }
 }

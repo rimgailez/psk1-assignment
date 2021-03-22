@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import psk1.assignment.myBatis.dao.MovieMapper;
 import psk1.assignment.myBatis.model.Movie;
+import psk1.assignment.myBatis.model.Role;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -32,7 +33,6 @@ public class MyBatisMovies {
 
     @Getter
     private List<Movie> movies;
-
 
     @PostConstruct
     public void init() {

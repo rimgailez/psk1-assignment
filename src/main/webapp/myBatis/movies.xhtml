@@ -9,6 +9,11 @@
     <ol>
         <ui:repeat value="#{myBatisMovies.movies}" var="movie">
             <li><h:link value="#{movie.title}" outcome="roles?movieId=#{movie.id}"/></li>
+            <ul>
+                <ui:repeat value="#{movie.roles}" var="role">
+                    <li>#{role.roleName}</li>
+                </ui:repeat>
+            </ul>
         </ui:repeat>
     </ol>
     <h:form>

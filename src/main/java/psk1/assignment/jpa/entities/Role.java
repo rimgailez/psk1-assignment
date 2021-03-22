@@ -12,8 +12,7 @@ import java.io.Serializable;
         @NamedQuery(name = "findAllRoles", query = "select r from Role as r")
 })
 @Getter @Setter
-public class Role implements Serializable {
-
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

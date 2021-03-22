@@ -29,4 +29,9 @@ public class RolesDAO {
         return entityManager.merge(role);
     }
 
+    public List<Role> findByMovie(Integer movieId) {
+        return entityManager.createQuery("SELECT r FROM Role r WHERE r.movie.id = :movieId")
+                .setParameter("movieId", movieId)
+                .getResultList();
+    }
 }

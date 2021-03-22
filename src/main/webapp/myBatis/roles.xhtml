@@ -10,18 +10,18 @@
     <h2>Roles in a #{myBatisRolesInMovie.movie.title} movie:</h2>
     <ol>
         <ui:repeat value="#{myBatisRolesInMovie.movie.roles}" var="role">
-            <li>#{role.name}</li>
+            <li>#{role.roleName}</li>
         </ui:repeat>
     </ol>
     <h:form>
         Role name:
-        <h:inputText a:placeholder="name" value="#{myBatisRolesInMovie.roleToAdd.name}" required="true" />
+        <h:inputText a:placeholder="name" value="#{myBatisRolesInMovie.roleToAdd.roleName}" required="true" />
         <br/>
         Description:
         <h:inputText a:placeholder="description" value="#{myBatisRolesInMovie.roleToAdd.description}" required="false" />
         <br/>
         Actor name:
-        <h:inputText a:placeholder="actor" value="#{myBatisRolesInMovie.roleToAdd.actor}" required="false" />
+        <h:inputText a:placeholder="actor" value="#{myBatisRolesInMovie.roleToAdd.actorName}" required="false" />
         <br/>
         <h:commandButton value="Add role to a movie" action="#{myBatisRolesInMovie.addRole}" >
             <f:param name="movieId" value="#{myBatisRolesInMovie.movie.id}" />
