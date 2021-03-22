@@ -39,6 +39,6 @@ public class MyBatisRolesInMovie {
     public String addRole() {
         roleToAdd.setMovieId(this.movie.getId());
         roleMapper.insert(roleToAdd);
-        return "myBatis/roles?faces-redirect=true&movieId=" + this.movie.getId();
+        return "roles?faces-redirect=true&movieId=" + this.movie.getId();
     }
 }

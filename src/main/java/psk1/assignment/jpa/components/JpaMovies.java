@@ -45,7 +45,7 @@ public class JpaMovies {
     public String addMovie(){
         movieToAdd.setReleaseDate(LocalDate.of(year, month, day));
         moviesDAO.create(movieToAdd);
-        return "jpa/movies?faces-redirect=true";
+        return "movies?faces-redirect=true";
     }
 
     private void getAllMovies(){

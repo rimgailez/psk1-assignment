@@ -43,7 +43,7 @@ public class MyBatisMovies {
     public String addMovie() {
         movieToAdd.setReleaseDate(Date.valueOf(LocalDate.of(year, month, day)));
         movieMapper.insert(movieToAdd);
-        return "/myBatis/movies?faces-redirect=true";
+        return "movies?faces-redirect=true";
     }
 
     private void getAllMovies() {

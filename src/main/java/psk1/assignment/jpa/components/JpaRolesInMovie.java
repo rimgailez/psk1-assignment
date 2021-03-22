@@ -39,6 +39,6 @@ public class JpaRolesInMovie implements Serializable {
     public String addRole() {
         roleToAdd.setMovie(this.movie);
         rolesDAO.create(roleToAdd);
-        return "jpa/roles?faces-redirect=true&movieId=" + this.movie.getId();
+        return "roles?faces-redirect=true&movieId=" + this.movie.getId();
     }
 }
