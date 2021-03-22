@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.mybatis.cdi.Mapper;
 import psk1.assignment.myBatis.model.Movie;
+import psk1.assignment.myBatis.model.Role;
 
 @Mapper
 public interface MovieMapper {

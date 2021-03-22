@@ -10,7 +10,7 @@
     <h2>Roles in a #{jpaRolesInMovie.movie.title} movie:</h2>
     <ol>
         <ui:repeat value="#{jpaRolesInMovie.movie.roles}" var="role">
-            <li>#{role.name}</li>
+            <li>#{role.name}: #{role.description}</li>
         </ui:repeat>
     </ol>
     <h:form>

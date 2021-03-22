@@ -33,6 +33,7 @@ public class MyBatisRolesInMovie {
                 FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
         Integer movieId = Integer.parseInt(requestParameters.get("movieId"));
         this.movie = movieMapper.selectByPrimaryKey(movieId);
+        this.movie.setRoles(roleMapper.selectRolesInMovie(movieId));
     }
 
     @Transactional

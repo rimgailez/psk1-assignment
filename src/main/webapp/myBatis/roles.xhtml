@@ -10,7 +10,7 @@
     <h2>Roles in a #{myBatisRolesInMovie.movie.title} movie:</h2>
     <ol>
         <ui:repeat value="#{myBatisRolesInMovie.movie.roles}" var="role">
-            <li>#{role.roleName}</li>
+            <li>#{role.roleName}: #{role.description}</li>
         </ui:repeat>
     </ol>
     <h:form>

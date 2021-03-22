@@ -5,15 +5,6 @@
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="RELEASE_DATE" jdbcType="DATE" property="releaseDate" />
     <result column="TITLE" jdbcType="VARCHAR" property="title" />
-    <collection property="roles" select="selectRolesInMovie" column="id" javaType="ArrayList" ofType="Role" />
-  </resultMap>
-  <resultMap type="Movie" id="resultMovie">
-    <id property="id" column="id" />
-    <result property="releaseDate" column="release_date" />
-    <result property="title" column="name"/>
-  </resultMap>
-  <resultMap type="psk1.assignment.myBatis.model.Role" id="RoleResult">
-    <association property="movie" javaType="Movie" column="movie" select="selectByPrimaryKey" />
   </resultMap>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from PUBLIC.MOVIE
@@ -38,10 +29,5 @@
     select m.ID, m.RELEASE_DATE, m.TITLE
     from PUBLIC.MOVIE m
     order by m.id
-  </select>
-  <select id="selectRolesInMovie" parameterType="java.lang.Integer" resultType="Role">
-    select *
-    from PUBLIC.ROLE
-    where movie_id = #{id}
   </select>
 </mapper>

@@ -11,7 +11,7 @@
             <li><h:link value="#{movie.title}" outcome="roles?movieId=#{movie.id}"/></li>
             <ul>
                 <ui:repeat value="#{jpaMovies.getRolesInMovie(movie.id)}" var="role">
-                    <li>#{role.name}</li>
+                    <li>#{role.name}: #{role.description}</li>
                 </ui:repeat>
             </ul>
         </ui:repeat>
