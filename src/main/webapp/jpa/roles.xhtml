@@ -27,6 +27,12 @@
             <f:param name="movieId" value="#{jpaRolesInMovie.movie.id}" />
         </h:commandButton>
     </h:form>
+    <h2>Producers in a #{jpaRolesInMovie.movie.title} movie:</h2>
+    <ol>
+        <ui:repeat value="#{jpaRolesInMovie.movie.producers}" var="producer">
+            <li>#{producer.firstName} #{producer.lastName}</li>
+        </ui:repeat>
+    </ol>
     <h:link outcome="/jpa/movies" value="Back to movies"/>
 </h:body>
 </html>
