@@ -33,6 +33,20 @@
             <li>#{producer.firstName} #{producer.lastName}</li>
         </ui:repeat>
     </ol>
+    <h2>All producers:</h2>
+    <ol>
+        <ui:repeat value="#{jpaRolesInMovie.producers}" var="producer">
+            <li>#{producer.firstName} #{producer.lastName}</li>
+        </ui:repeat>
+    </ol>
+    <h:form>
+        Producer number:
+        <h:inputText a:placeholder="number" value="#{jpaRolesInMovie.producer_id}" required="true" />
+        <br/>
+        <h:commandButton value="Add producer to a movie" action="#{jpaRolesInMovie.addProducer}" >
+            <f:param name="movieId" value="#{jpaRolesInMovie.movie.id}" />
+        </h:commandButton>
+    </h:form>
     <h:link outcome="/jpa/movies" value="Back to movies"/>
 </h:body>
 </html>

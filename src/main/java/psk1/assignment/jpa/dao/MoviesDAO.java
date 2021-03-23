@@ -25,6 +25,10 @@ public class MoviesDAO {
         this.entityManager.persist(movie);
     }
 
+    public Movie update(Movie movie){
+        return entityManager.merge(movie);
+    }
+
     public Movie findOne(Integer id){
         return entityManager.find(Movie.class, id);
     }
