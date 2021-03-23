@@ -40,8 +40,11 @@
         </ui:repeat>
     </ol>
     <h:form>
-        Producer number:
-        <h:inputText a:placeholder="number" value="#{jpaRolesInMovie.producer_id}" required="true" />
+        Choose a producer to add:
+        <h:selectOneMenu value="#{jpaRolesInMovie.producer_id}">
+            <f:selectItems value="#{jpaRolesInMovie.producers}" var="producer" itemValue="#{producer.id}"
+                           itemLabel="#{producer.firstName} #{producer.lastName}"/>
+        </h:selectOneMenu>
         <br/>
         <h:commandButton value="Add producer to a movie" action="#{jpaRolesInMovie.addProducer}" >
             <f:param name="movieId" value="#{jpaRolesInMovie.movie.id}" />

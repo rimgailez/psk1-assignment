@@ -35,7 +35,7 @@ public class JpaRolesInMovie implements Serializable {
     private Role roleToAdd = new Role();
 
     @Getter @Setter
-    private Integer producer_id;
+    private Integer producer_id = 0;
 
     @PostConstruct
     public void init() {
@@ -56,9 +56,12 @@ public class JpaRolesInMovie implements Serializable {
     @Transactional
     public String addProducer() {
         List<Producer> producers = movie.getProducers();
-        producers.add(producersDAO.findOne(producer_id));
-        movie.setProducers(producers);
-        moviesDAO.update(movie);
+        Producer producerToAdd = producersDAO.findOne(producer_id);
+        if(!producers.contains(producerToAdd)){
+            producers.add(producerToAdd);
+            movie.setProducers(producers);
+            moviesDAO.update(movie);
+        }
         return "roles?faces-redirect=true&movieId=" + this.movie.getId();
     }
 }
