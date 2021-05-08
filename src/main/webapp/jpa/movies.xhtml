@@ -32,6 +32,12 @@
         <br/>
         <h:commandButton value="Add new movie" action="#{jpaMovies.addMovie}"/>
     </h:form>
+    <br/>
+    <h:form>
+        <h:outputText value="#{jpaMovieGoal.daysGeneratorStatus}"/>
+        <h:commandButton value="Want to make a new goal?" disabled="#{jpaMovieGoal.makingGoal}" action="#{jpaMovieGoal.makeGoal()}"/>
+    </h:form>
+    <br/>
     <h:link value="Back to index" outcome="/index"/>
 </h:body>
 </html>
