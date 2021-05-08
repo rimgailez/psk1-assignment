@@ -33,8 +33,4 @@ public class MoviesDAO {
     public Movie findOne(Integer id){
         return entityManager.find(Movie.class, id);
     }
-
-    public void delete(Movie movie){
-        this.entityManager.remove(movie);
-    }
 }

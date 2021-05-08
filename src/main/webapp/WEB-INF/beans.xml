@@ -12,4 +12,7 @@
     <decorators>
         <class>psk1.assignment.decorators.TitleCensorDecorator</class>
     </decorators>
+    <alternatives>
+        <class>psk1.assignment.alternatives.InformalGreeting</class>
+    </alternatives>
 </beans>

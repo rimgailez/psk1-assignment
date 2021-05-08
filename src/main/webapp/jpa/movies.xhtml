@@ -5,6 +5,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 <h:head/>
 <h:body>
+    <h2>#{jpaMovies.sayHello()}</h2>
     <h2>Movies:</h2>
     <ol>
         <ui:repeat value="#{jpaMovies.movies}" var="movie">

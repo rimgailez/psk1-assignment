@@ -1,6 +1,7 @@
 package psk1.assignment.jpa.components;
 
-import psk1.assignment.decorators.SimpleTitle;
+import psk1.assignment.alternatives.Greeting;
+import psk1.assignment.decorators.Title;
 import psk1.assignment.interceptors.LoggedInvocation;
 import psk1.assignment.jpa.dao.*;
 import psk1.assignment.jpa.entities.*;
@@ -21,10 +22,13 @@ public class JpaMovies {
     private MoviesDAO moviesDAO;
 
     @Inject
-    private SimpleTitle title;
+    private Title title;
 
     @Inject
     private RolesDAO rolesDAO;
+
+    @Inject
+    private Greeting greeting;
 
     @Getter @Setter
     private Movie movieToAdd = new Movie();
@@ -57,6 +61,10 @@ public class JpaMovies {
 
     private void getAllMovies(){
         this.movies = moviesDAO.getAll();
+    }
+
+    public String sayHello(){
+        return greeting.sayHello();
     }
 
     public List<Role> getRolesInMovie(Integer movieId){
