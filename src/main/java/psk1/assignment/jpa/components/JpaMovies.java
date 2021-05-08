@@ -1,5 +1,7 @@
 package psk1.assignment.jpa.components;
 
+import psk1.assignment.decorators.SimpleTitle;
+import psk1.assignment.interceptors.LoggedInvocation;
 import psk1.assignment.jpa.dao.*;
 import psk1.assignment.jpa.entities.*;
 
@@ -17,6 +19,9 @@ public class JpaMovies {
 
     @Inject
     private MoviesDAO moviesDAO;
+
+    @Inject
+    private SimpleTitle title;
 
     @Inject
     private RolesDAO rolesDAO;
@@ -42,7 +47,9 @@ public class JpaMovies {
     }
 
     @Transactional
+    @LoggedInvocation
     public String addMovie(){
+        title.logTitle(movieToAdd.getTitle());
         movieToAdd.setReleaseDate(LocalDate.of(year, month, day));
         moviesDAO.create(movieToAdd);
         return "movies?faces-redirect=true";

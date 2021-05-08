@@ -1,6 +1,7 @@
 package psk1.assignment.jpa.components;
 
 import lombok.*;
+import psk1.assignment.interceptors.LoggedInvocation;
 import psk1.assignment.jpa.dao.*;
 import psk1.assignment.jpa.entities.*;
 
@@ -47,6 +48,7 @@ public class JpaRolesInMovie implements Serializable {
     }
 
     @Transactional
+    @LoggedInvocation
     public String addRole() {
         roleToAdd.setMovie(this.movie);
         rolesDAO.create(roleToAdd);
@@ -54,6 +56,7 @@ public class JpaRolesInMovie implements Serializable {
     }
 
     @Transactional
+    @LoggedInvocation
     public String addProducer() {
         List<Producer> producers = movie.getProducers();
         Producer producerToAdd = producersDAO.findOne(producer_id);
