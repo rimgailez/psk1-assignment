@@ -8,12 +8,15 @@
     <h2>Movies:</h2>
     <ol>
         <ui:repeat value="#{jpaMovies.movies}" var="movie">
-            <li><h:link value="#{movie.title}" outcome="roles?movieId=#{movie.id}"/></li>
+            <li>
+                <h:link value="#{movie.title}" outcome="roles?movieId=#{movie.id}"/>
+            </li>
             <ul>
                 <ui:repeat value="#{jpaMovies.getRolesInMovie(movie.id)}" var="role">
                     <li>#{role.name}: #{role.description}</li>
                 </ui:repeat>
             </ul>
+            <h:link value="Change title" outcome="changeTitle?movieId=#{movie.id}"/>
         </ui:repeat>
     </ol>
     <h:form>

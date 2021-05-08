@@ -31,4 +31,8 @@ public class Role {
     @ManyToOne
     @JoinColumn(name = "MOVIE_ID")
     private Movie movie;
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 }

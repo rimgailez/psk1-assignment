@@ -3,6 +3,7 @@ package psk1.assignment.jpa.dao;
 import psk1.assignment.jpa.entities.Role;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 @ApplicationScoped
 public class RolesDAO {
 
-    @Inject
+    @Inject @Default
     private EntityManager entityManager;
 
     public List<Role> getAll() {

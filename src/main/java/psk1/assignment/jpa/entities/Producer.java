@@ -34,5 +34,9 @@ public class Producer implements Serializable {
 
     @ManyToMany(mappedBy = "producers")
     @Column(name = "PRODUCED_MOVIES")
-    private List<Movie> movies = new ArrayList<>();;
+    private List<Movie> movies = new ArrayList<>();
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 }

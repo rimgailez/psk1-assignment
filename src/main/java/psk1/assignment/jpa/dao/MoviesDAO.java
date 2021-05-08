@@ -3,6 +3,7 @@ package psk1.assignment.jpa.dao;
 import psk1.assignment.jpa.entities.Movie;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -10,7 +11,7 @@ import java.util.List;
 @ApplicationScoped
 public class MoviesDAO {
 
-    @Inject
+    @Inject @Default
     private EntityManager entityManager;
 
     public void setEntityManager(EntityManager em) {
@@ -31,5 +32,9 @@ public class MoviesDAO {
 
     public Movie findOne(Integer id){
         return entityManager.find(Movie.class, id);
+    }
+
+    public void delete(Movie movie){
+        this.entityManager.remove(movie);
     }
 }

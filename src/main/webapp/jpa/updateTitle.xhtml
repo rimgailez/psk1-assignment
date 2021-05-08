@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head/>
+<h:body>
+    <h2>Optimistic lock testing (updating movie title)</h2>
+    <h:form>
+        <h:commandButton value="Update Movie Title" action="#{jpaUpdateMovieTitle.test()}" />
+        <br/>
+        <h:outputText value="#{jpaUpdateMovieTitle.update1Status}" />
+        <br/>
+        <h:outputText value="#{jpaUpdateMovieTitle.update2Status}" />
+        <br/>
+    </h:form>
+    <h:link value="Back to index" outcome="/index"/>
+</h:body>
+</html>

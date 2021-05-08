@@ -31,4 +31,8 @@ public class Movie implements Serializable {
 
     @ManyToMany
     private List<Producer> producers = new ArrayList<>();
+
+    @Version
+    @Column(name = "OPT_LOCK_VERSION")
+    private Integer version;
 }
