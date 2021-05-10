@@ -33,6 +33,6 @@ public class JpaMovieGoal implements Serializable {
         } else if (isMakingGoal()) {
             return "Generator is making goal. Please wait...";
         }
-        return "You have to watch movies 5 movies in " + daysGenerationTask.get() + " days.";
+        return "You have to watch 5 movies in " + daysGenerationTask.get() + " days.";
     }
 }
